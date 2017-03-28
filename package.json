@@ -1,0 +1,15 @@
+{
+  "name": "urlshort",
+  "version": "1.0.0",
+  "description": "Takes original URL and returns a shorter URL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CodeFay",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.9.1"
+  }
+}

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>URL Shortener Microservice</title>
+        
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script></script>
+        <style type = 'text/css'>
+            body {
+                font-family: 'Roboto', sans-serif;
+                padding-top: 50px;
+                padding-left: 20px;
+            }
+            span {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body id = 'format'>
+        <div>
+            <h1>API Basejump: URL Shortener Microservice</h1>
+            <h3> User stories: </h3>
+                1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+                </br>
+                2) If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+                </br>
+                3) When I visit that shortened URL, it will redirect me to my original link.
+                </br>
+                
+                <!-- Update example usage! -->
+            <h3>Example usage:</h3>
+            <p><mark>
+                https://codefay-timestamp-api.herokuapp.com/date/December%2015,%202015
+                </br>
+                https://codefay-timestamp-api.herokuapp.com/date/1450137600
+            </mark></p>
+            <h3>Example output:</h3>
+            <p><mark>
+                { "unix": 1450137600, "natural": "December 15, 2015" }
+            </mark></p>
+        </div>
+        <span>
+			  <p> Written and coded by <a href="https://www.freecodecamp.com/codefay">CodeFay</a>
+			  </p>
+		 </span>
+    </body>
+</html>
