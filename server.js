@@ -1,22 +1,18 @@
 // ./mongod and mongo to run
-// mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"
-//https://camper-api-project-codefay.c9users.io/google
-// 56 gmail; 775 google
+//https://forum.freecodecamp.com/t/guide-for-using-mongodb-and-deploying-to-heroku/19347
+
 var express = require('express');
 var app = express();
 var path = require('path');
-//var Post = require('post.js');
 
 var mongoose = require('mongoose');
 
 var PostSchema = mongoose.Schema({
-    //date: {type: Date, default: Date.now},
     _id:  { type: Number },
     longURL: { type: String }
 });
 
 var Post = mongoose.model('Post', PostSchema);
-
 var num;
 
 //var url = 'mongodb://localhost/test';
@@ -24,7 +20,6 @@ var num;
 console.log('mongolab_uri ' + process.env.MONGOLAB_URI);
 var url = process.env.MONGOLAB_URI;
 mongoose.connect(url, function (err, db) {
-//https://forum.freecodecamp.com/t/guide-for-using-mongodb-and-deploying-to-heroku/19347
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
@@ -75,8 +70,6 @@ app.get('/*', function(req, res){
         });
         */
     }
-    // https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
-
 });
 
 // http://stackoverflow.com/questions/1701898/how-to-detect-whether-a-string-is-in-url-format-using-javascript
@@ -86,7 +79,6 @@ function isUrl(s) {
 }
 
 //app.listen(8080);
-
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
