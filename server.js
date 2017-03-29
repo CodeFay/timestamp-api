@@ -19,10 +19,10 @@ var Post = mongoose.model('Post', PostSchema);
 
 var num;
 
-var url = 'mongodb://localhost/test';
+//var url = 'mongodb://localhost/test';
 
 console.log('mongolab_uri ' + process.env.MONGOLAB_URI);
-//var url = process.env.MONGOLAB_URI;
+var url = process.env.MONGOLAB_URI;
 mongoose.connect(url, function (err, db) {
 //https://forum.freecodecamp.com/t/guide-for-using-mongodb-and-deploying-to-heroku/19347
   if (err) {
@@ -85,10 +85,10 @@ function isUrl(s) {
    return regexp.test(s);
 }
 
-app.listen(8080);
+//app.listen(8080);
 
-/*
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-*/
+
