@@ -1,4 +1,5 @@
 // ./mongod and mongo to run
+// mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"
 //https://camper-api-project-codefay.c9users.io/google
 // 56 gmail; 775 google
 var express = require('express');
@@ -9,7 +10,19 @@ var Post = require('../urlshort/post.js');
 var mongoose = require('mongoose');
 var num;
 
-mongoose.connect('mongodb://localhost/test');
+//var url = 'mongodb://localhost/test';
+
+console.log('mongolab_uri ' + process.env.MONGOLAB_URI);
+var url = process.env.MONGOLAB_URI;
+mongoose.connect(url, function (err, db) {
+//https://forum.freecodecamp.com/t/guide-for-using-mongodb-and-deploying-to-heroku/19347
+  if (err) {
+    console.log('Unable to connect to the mongoDB server. Error:', err);
+  } else {
+    console.log('Connection established to', url);
+  }
+});
+
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(req,res) {
@@ -28,8 +41,8 @@ app.get('/*', function(req, res){
                 res.send('Short URL not in database');
             } else {
                 console.log(post.longURL);
-                res.send(post.longURL);
-                //res.redirect(post.longURL);
+                //res.send(post.longURL);
+                res.redirect(post.longURL);
             }
         });
         
@@ -68,3 +81,4 @@ function isUrl(s) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
