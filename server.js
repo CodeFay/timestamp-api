@@ -5,7 +5,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var Post = require('../urlshort/post.js');
+var Post = require('../post.js');
 
 var mongoose = require('mongoose');
 var num;
