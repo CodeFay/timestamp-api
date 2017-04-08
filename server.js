@@ -60,7 +60,7 @@ app.get('/*', function(req, res){
             longURL: input
             }).save(function (err) {
             if (err) return console.error(err);
-            res.send({ "original_URL":input, "short_url":"https://camper-api-project-codefay.c9users.io/" + num});
+            res.send({ "original_URL":input, "short_url":"https://cfurl.herokuapp.com/" + num});
         });
         
         /*
